@@ -1,0 +1,53 @@
+:root{
+    --grid-cols:1;
+    --grid-rows:1;
+}    
+
+#mainContainer{
+    display:grid;
+    grid-template-rows: 1fr;
+    grid-template-columns:1fr ; 
+    row-gap: 2rem;
+
+}
+
+#titleContainer{
+    display: flex;
+    font-size: 3rem;
+    justify-content: center;
+    
+}
+
+#optionContainer{
+    display: flex;
+    justify-content: space-around;
+    width: 50rem;
+    margin-left: auto;
+    margin-right: auto ;
+    border: 1px solid black;
+}
+
+#sliderContainer{
+    display: flex;
+    justify-content: center;
+}
+
+#sketchContainer{
+    display :grid;
+    width:40rem;
+    height: 40rem;
+    border:1px solid black;
+    margin: auto;
+    gap: 1 em;
+    
+    grid-template-rows: repeat(var(--grid-rows),1fr);
+    grid-template-columns: repeat(var(--grid-cols),1fr);
+
+}
+
+.grid-item{
+    
+   box-sizing: border-box;
+    border:1px solid #ddd;
+    text-align: center;
+}
