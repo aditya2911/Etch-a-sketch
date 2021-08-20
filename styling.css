@@ -38,7 +38,7 @@
     height: 40rem;
     border:1px solid black;
     margin: auto;
-    gap: 1 em;
+    gap: 1 em; 
     
     grid-template-rows: repeat(var(--grid-rows),1fr);
     grid-template-columns: repeat(var(--grid-cols),1fr);
@@ -48,6 +48,6 @@
 .grid-item{
     
    box-sizing: border-box;
-    border:1px solid #ddd;
+    border:1px solid black; 
     text-align: center;
 }
