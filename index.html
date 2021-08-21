@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
+
+<head>
+    <title>
         Etch-a-Sketch
-        </title>
-        <link rel="stylesheet" href="reset.css">
-        <link rel="stylesheet" href="styling.css">
-        
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" defer></script>
-        <script type="text/javascript" src="logic-script.js" defer></script>
+    </title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styling.css">
 
-    </head>
-    <body>
-        <div id="mainContainer">
-            <div id="titleContainer">Etch a Sketch</div>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"
+        defer></script>
+    <script type="text/javascript" src="logic-script.js" defer></script>
 
-            <div id="optionContainer">
-                <button>Reset</button>
-                <button>Black</button>
-                <button id="rainbowButton">Rainbow</button>
-                <button>ab</button>
-                <button>Color</button>
-                <button>Eraser</button>
-            </div>
-            <div id="sliderContainer">
-                <input type="range" min="1" max="100" value="16">
-            </div>
-            <div id="sketchContainer" class="hover1"></div>
+</head>
+
+<body>
+    <div id="mainContainer">
+        <div id="titleContainer">Etch a Sketch</div>
+
+        <div id="optionContainer">
+            <button class="featureButton" id="reset">Reset</button>
+            <button class="featureButton" data-color="black">Black</button>
+            <button class="featureButton" data-color="rainbow" id="rainbowButton">Rainbow</button>
+            <button class="featureButton" data-color="">ab</button>
+            <button class="featureButton" data-color="colorRGB">Color</button>
+            <button class="featureButton" data-color="eraser">Eraser</button>
         </div>
+        <div id="sliderContainer">
+            <input type="range" min="1" max="100" value="16">
+        </div>
+        <div id="sketchContainer"></div>
+    </div>
 
 
 
-    </body>
+</body>
+
 </html>
