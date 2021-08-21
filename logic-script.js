@@ -62,18 +62,16 @@ function makeCells(rows, cols) {
 
 
 
-    let width = 40 / rows + "rem";
-    let height = 40 / cols + "rem";
+    let widthOftheCell = 40 / rows + "rem";
+    let heightOftheCell = 40 / cols + "rem";
 
     for (c = 0; c < rows * cols; c++) {
         cell = document.createElement("div");
-        counter = c + 1;
 
-        cell.style.setProperty("width", width);
-        cell.style.setProperty("height", height);
-        // cell.addEventListener("click",function(){cell.style.backgroundColor = "black";});
-        //  cell.innerText = (counter);
-        //    cell.classList.add("box");
+
+        cell.style.setProperty("width", widthOftheCell);
+        cell.style.setProperty("height", heightOftheCell);
+
         cell.id = DIV_CELL_ID_NAME;
 
         sketchContainer.appendChild(cell).className = DIV_CELL_CLASS_NAME;
@@ -90,10 +88,8 @@ function rgbRandomizer() {
     return randomColor;
 }
 
-// sketchContainerChild.addEventListener("hover",
-// function(){sketchContainerChild.style.setProperty("background-color",black)});
+
 function changeCellColor() {
-    // cellOfTheDiv  = document.querySelectorAll("#divCell");
 
     switch (color) {
         case DEFAULT_MODE:
