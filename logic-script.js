@@ -22,10 +22,11 @@ let color = DEFAULT_MODE;
 const featureButton = document.querySelectorAll(".featureButton");
 const resetButton = document.getElementById("reset");
 
-
+let gridPixel;
 
 
 let randomizedColor;
+let currentlyActive = false;
 
 makeCells(16, 16);
 
@@ -90,7 +91,7 @@ function rgbRandomizer() {
 
 
 function changeCellColor() {
-
+ if(currentlyActive){
     switch (color) {
         case DEFAULT_MODE:
             this.style.backgroundColor = CELL_COLOR_BLACK;
@@ -120,17 +121,31 @@ function changeCellColor() {
     }
 
 }
+}
 
-featureButton.forEach((featureButton) => featureButton.addEventListener("click", colorMode));
+function toggleClicker(choice){
+    console.log("inside toggle log")
+    currentlyActive = choice;
+   
+   
+}
+
+featureButton.forEach((featureButton) => featureButton.addEventListener("mouseup", colorMode));
+
 resetButton.addEventListener("click", function () {
     sketchContainer.textContent = "";
     makeCells(16, 16)
 });
 
+let cellActivator = document.querySelectorAll("."+DIV_CELL_CLASS_NAME);
+     cellActivator.forEach((cellActivator) => cellActivator.addEventListener("mousedown",function(){toggleClicker(true)}) );
+     cellActivator.forEach((cellActivator) => cellActivator.addEventListener("mouseup",function(){toggleClicker(false)}) );
 function onLoad() {
-    let gridPixel = document.querySelectorAll("#" + DIV_CELL_ID_NAME);
+    gridPixel = document.querySelectorAll("#" + DIV_CELL_ID_NAME);
 
-    gridPixel.forEach((gridPixel) => gridPixel.addEventListener("mouseenter", changeCellColor));
+     
+    gridPixel.forEach((gridPixel) => gridPixel.addEventListener("mouseenter",changeCellColor ));
+   
 }
 
 
