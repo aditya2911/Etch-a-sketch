@@ -23,13 +23,15 @@
             <button class="featureButton" data-color="black">Black</button>
             <button class="featureButton" data-color="rainbow" id="rainbowButton">Rainbow</button>
             <button class="featureButton" data-color="">ab</button>
-            <button class="featureButton" data-color="colorRGB">Color</button>
+            <button class="featureButton" data-color="colorRGB"  value="red">Color
+                <input id="RGBselector" type="color">
+            </button>
             <button class="featureButton" data-color="eraser">Eraser</button>
         </div>
         <div id="sliderContainer">
             <input type="range" min="1" max="100" value="16">
         </div>
-        <div ondragstart="return false;" ondrop="return false;" id="sketchContainer"></div>
+        <div id="sketchContainer"></div>
     </div>
 
 
