@@ -24,6 +24,9 @@ const RgbSelector = document.getElementById("RGBselector");
 let color = DEFAULT_MODE;
 const featureButton = document.querySelectorAll(".featureButton");
 const resetButton = document.getElementById("reset");
+const sliderButton = document.getElementById("slider");
+
+
 
 let gridPixel;
 let rgbValue;
@@ -32,9 +35,21 @@ let randomizedColor;
 let currentlyActive = false;
 let opacityOfCell = 0.0;
 let currentOpacity = 0.0;
+let sliderValue = 16;
+sliderButton.value = 16;
 
 sketchContainer.style.cursor = "crosshair"
 sketchContainer.onmousedown = () => { return false; };
+
+
+
+function sliderValueChange ()
+{
+    sliderValue = sliderButton.value;
+    sketchContainer.textContent = ""
+    makeCells(sliderValue,sliderValue);
+}
+
 
 let checker;
 function ValueSelectedOfRGB() {
@@ -174,20 +189,22 @@ featureButton.forEach((featureButton) => featureButton.addEventListener("mousedo
 
 resetButton.addEventListener("click", function () {
     sketchContainer.textContent = "";
-    makeCells(16, 16);
+    makeCells(sliderValue, sliderValue);
 });
-function changeRainbowOpacity() {
-    if (currentlyActive) {
-        if (color == RAINBOW_MODE) {
-            console.log("bhai idhar kaise");
-            currentOpacity = window.getComputedStyle(this).opacity;
-            this.style.backgroundColor = `rgba(0,0,0,${currentOpacity + 0.1})`
-            this.classList.add = "opacity"
+// function changeRainbowOpacity() {
+//     if (currentlyActive) {
+//         if (color == RAINBOW_MODE) {
+//             console.log("bhai idhar kaise");
+//             currentOpacity = window.getComputedStyle(this).opacity;
+//             this.style.backgroundColor = `rgba(0,0,0,${currentOpacity + 0.1})`
+//             this.classList.add = "opacity"
 
 
-        }
-    }
-}
+//         }
+//     }
+// }
+
+sliderButton.addEventListener("change",function(){sliderValueChange();});
 
 function onLoad() {
     gridPixel = document.querySelectorAll("#" + DIV_CELL_ID_NAME);
