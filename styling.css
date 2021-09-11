@@ -1,7 +1,8 @@
 :root{
     --grid-cols:1;
     --grid-rows:1;
-   
+    /* height: 20vh;
+    width: 1vw; */
 }    *{
     font-family: "Open Sans","Roboto";
 }
@@ -15,9 +16,12 @@
 }
 
 #titleContainer{
-    display: flex;
+    display: grid;
     font-size: 3rem;
     justify-content: center;
+    height: 10vh;
+    grid-template-rows: 100vw;
+    box-sizing: border-box;
     
 }
 
