@@ -7,6 +7,8 @@ const ERASE_MODE = "eraseMode";
 const SHADING_MODE = "shadingMode";
 const RAINBOW_MODE = "rainbowMode";
 const RGB_MODE = "RgbMode";
+const DEFAULT_MODE = "defaultBlackMode";
+
 
 const DIV_CELL_ID_NAME = "divCell";
 const DIV_CELL_CLASS_NAME = "grid-item";
@@ -17,22 +19,33 @@ const CELL_COLOR_BLACK = "#000000";
 const CELL_COLOR_WHITE = "#ffffff";
 
 const RGBButton = document.getElementById("rainbowButton");
-const FeatureClassButton = document.getElementsByClassName(".featureButton");
+const featureButton = document.querySelectorAll(".featureButton");
 const Canvas = document.getElementById("canvas");
 const Slider = document.getElementById("slider");
+const RgbSelector = document.getElementById("colorWheel");
+const ResetButton = document.getElementById("reset"); 
 
 
 let randomizedColor;
 let currentlyActive = false;
 let opacityOfCell = 0.0;
 let currentOpacity = 0.0;
-const DEFAULT_MODE = "defaultBlackMode";
+let sliderValue = 16;
+Slider.value = 16;
+RgbSelector.value = "#000000";
+rgbValue = RgbSelector;
+let color = RGB_MODE;
 
-let color = DEFAULT_MODE;
 
-Canvas.onmousedown = () => {return false};
+function sliderValueChange(){
+    sliderValue = Slider.value;
+    resetCells();
+}
 
-
+function resetCells(){
+    Canvas.textContent =""
+    makeCells(sliderValue,sliderValue);
+}
 function makeCells(rows, cols) {
     let cell;
     Canvas.style.setProperty(GRID_ROWS, rows);
@@ -51,7 +64,7 @@ function makeCells(rows, cols) {
         cell.style.setProperty("height", heightOftheCell);
         cell.classList.add("grid-cell");
         cell.setAttribute('draggable', 'false');
-        cell.style.border ="1px solid black";
+        cell.style.border ="1px solid #ddd";
         cell.id = DIV_CELL_ID_NAME;
 
 
@@ -73,14 +86,46 @@ function toggleClicker(choice) {
 
 }
 
+function ValueSelectedOfRGB() {
+    rgbValue = RgbSelector.value;
+    colorMode(event);
+}
+
+RgbSelector.addEventListener("change", ValueSelectedOfRGB, false);
+
+
+function colorMode(event){
+    switch(event.target.dataset.color)
+    {
+        case HTML_COLOR_MODE_RGB:
+            color = RGB_MODE;
+            break;
+
+        case HTML_COLOR_MODE_RAINBOW:
+            color = RAINBOW_MODE;
+            break;
+
+        case HTML_COLOR_MODE_SHADING:
+            color = SHADING_MODE;
+            break;    
+
+        case HTML_COLOR_MODE_ERASER:
+            color = ERASE_MODE;
+            break;
+    }
+
+}
+
+function rgbRandomizer() {
+    let randomColor = Math.floor(Math.random() * 255)
+    return randomColor;
+}
+
 function changeCellColor() {
 
     if (currentlyActive) {
         switch (color) {
-            case DEFAULT_MODE:
-                this.style.backgroundColor = CELL_COLOR_BLACK;
-                break;
-
+       
             case RGB_MODE:
 
 
@@ -122,7 +167,7 @@ function changeCellColor() {
                 break;
 
             default:
-                this.style.backgroundColor = "black";
+                this.style.backgroundColor = "#000000";
                 break;
 
         }
@@ -137,8 +182,12 @@ function changeCellColor() {
 
 
 
+Canvas.onmousedown = () => {return false};
+ResetButton.addEventListener("click",resetCells);
+Slider.addEventListener("change",sliderValueChange);
 
 
+featureButton.forEach((featureButton) => featureButton.addEventListener("mousedown", colorMode));
 makeCells(16,16);
 
 
@@ -149,6 +198,11 @@ function onLoad() {
     gridPixel.forEach((gridPixel) => gridPixel.addEventListener("mousedown", function () { toggleClicker(true) }));
     gridPixel.forEach((gridPixel) => gridPixel.addEventListener("mouseup", function () { toggleClicker(false) }));
 
+    gridPixel.forEach((gridPixel) => gridPixel.addEventListener("touchmove", function () { toggleClicker(true) }));
+    gridPixel.forEach((gridPixel) => gridPixel.addEventListener("touchend", function () { toggleClicker(false) }));
+
     gridPixel.forEach((gridPixel) => gridPixel.addEventListener("mouseenter", changeCellColor));
+    gridPixel.forEach((gridPixel) => gridPixel.addEventListener("touchmove", changeCellColor));
+
     // gridPixel.forEach((gridPixel) => gridPixel.addEventListener("mouseenter",changeRainbowOpacity ));
 }
