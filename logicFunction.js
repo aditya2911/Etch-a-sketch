@@ -178,7 +178,13 @@ function changeCellColor() {
 
 
 
-
+function getCellCoordinates(event){
+    if(true){
+        let cooridnate = this.getBoundingClientRect();
+        // console.log(event.touches[0].clientX);
+        console.log(document.elementFromPoint(event.touches[0].clientX,event.touches[0].clientY));
+    }
+}
 
 
 
@@ -191,18 +197,28 @@ featureButton.forEach((featureButton) => featureButton.addEventListener("mousedo
 makeCells(16,16);
 
 
+
+
 function onLoad() {
     gridPixel = document.querySelectorAll("#" + DIV_CELL_ID_NAME);
 
     let cellActivator = document.querySelectorAll("#" + DIV_CELL_ID_NAME);
     gridPixel.forEach((gridPixel) => gridPixel.addEventListener("mousedown", function () { toggleClicker(true) }));
-    gridPixel.forEach((gridPixel) => gridPixel.addEventListener("mouseup", function () { toggleClicker(false) }));
+    gridPixel.forEach((gridPixel) => gridPixel.addEventListener("mouseup", function () { toggleClicker(true) }));
 
-    gridPixel.forEach((gridPixel) => gridPixel.addEventListener("touchmove", function () { toggleClicker(true) }));
-    gridPixel.forEach((gridPixel) => gridPixel.addEventListener("touchend", function () { toggleClicker(false) }));
+    // gridPixel.forEach((gridPixel) => gridPixel.addEventListener("touchmove", function () { toggleClicker(true) }));
+    // gridPixel.forEach((gridPixel) => gridPixel.addEventListener("touchend", function () { toggleClicker(true) }));
+
+    // $("#"+DIV_CELL_ID_NAME).live('touchstart touchend',function(e){
+    //     e.preventDefault();   
+    // changeCellColor(); })
 
     gridPixel.forEach((gridPixel) => gridPixel.addEventListener("mouseenter", changeCellColor));
-    gridPixel.forEach((gridPixel) => gridPixel.addEventListener("touchmove", changeCellColor));
+    // gridPixel.forEach((gridPixel) => gridPixel.addEventListener("touchstart", getCellCoordinates));
+    gridPixel.forEach((gridPixel) => gridPixel.addEventListener("touchmove", getCellCoordinates));
 
+
+    // gridPixel.forEach((gridPixel) => gridPixel.addEventListener("touchmove", changeCellColor));
+    console.log(this.Canvas);
     // gridPixel.forEach((gridPixel) => gridPixel.addEventListener("mouseenter",changeRainbowOpacity ));
 }

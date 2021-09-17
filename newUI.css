@@ -13,7 +13,7 @@
 }
 @font-face {
     font-family: "eina03Bold";
-    src: url(text-resources/Eina03-Bold.ttf);
+    src: url(text-resources/Eina03-Regular.ttf);
 }
 input[type="color"] {
 	-webkit-appearance: none;
