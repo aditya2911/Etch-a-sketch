@@ -183,6 +183,57 @@ function getCellCoordinates(event){
         let cooridnate = this.getBoundingClientRect();
         // console.log(event.touches[0].clientX);
         console.log(document.elementFromPoint(event.touches[0].clientX,event.touches[0].clientY));
+        var mobileCell = document.elementFromPoint(event.touches[0].clientX,event.touches[0].clientY);
+        if (currentlyActive) {
+            switch (color) {
+           
+                case RGB_MODE:
+    
+    
+                    console.log(rgbValue);
+                    mobileCell.style.backgroundColor = RgbSelector.value;
+                    checker = this.style.backgroundColor.slice(-4, -1)
+                    break;
+    
+                case RAINBOW_MODE:
+    
+    
+                    let r = rgbRandomizer();
+                    let g = rgbRandomizer();
+                    let b = rgbRandomizer();
+                    console.log("tu idhar hai??")
+                    randomizedColor = `rgba(${r},${g},${b},1)`;
+    
+                    mobileCell.style.backgroundColor = `rgb(${r},${g},${b})`;
+                    checker = this.style.backgroundColor.slice(-4, -1)
+                    break;
+    
+                case ERASE_MODE:
+                    mobileCell.style.backgroundColor = CELL_COLOR_WHITE;
+                    break;
+    
+                case SHADING_MODE:
+                    if (mobileCell.style.backgroundColor.match(/rgba/)) {
+                        currentOpacity = Number(this.style.backgroundColor.slice(-4, -1));
+                        mobileCell.style.backgroundColor = `rgba(0,0,0,${currentOpacity + 0.1})`;
+                        mobileCell.classList.add('opaque');
+                        console.log("here");
+                    }
+                    else if (mobileCell.classList == 'opaque' && mobileCell.style.backgroundColor == 'rgb(0, 0, 0)') {
+                        return;
+                    } else {
+                        console.log("you are in else")
+                        mobileCell.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+                    }
+                    break;
+    
+                default:
+                    mobileCell.style.backgroundColor = "#000000";
+                    break;
+    
+            }
+    
+        }
     }
 }
 
@@ -213,9 +264,11 @@ function onLoad() {
     //     e.preventDefault();   
     // changeCellColor(); })
 
-    gridPixel.forEach((gridPixel) => gridPixel.addEventListener("mouseenter", changeCellColor));
+    // gridPixel.forEach((gridPixel) => gridPixel.addEventListener("mouseenter", changeCellColor));
     // gridPixel.forEach((gridPixel) => gridPixel.addEventListener("touchstart", getCellCoordinates));
-    gridPixel.forEach((gridPixel) => gridPixel.addEventListener("touchmove", getCellCoordinates));
+    Canvas.addEventListener("touchmove", getCellCoordinates);
+    Canvas.addEventListener("touchstart", getCellCoordinates);
+
 
 
     // gridPixel.forEach((gridPixel) => gridPixel.addEventListener("touchmove", changeCellColor));
