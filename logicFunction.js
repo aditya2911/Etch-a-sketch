@@ -179,11 +179,13 @@ function changeCellColor() {
 
 
 function getCellCoordinates(event){
-    if(true){
+    let mobileCell = document.elementFromPoint(event.touches[0].clientX,event.touches[0].clientY);
+
+    if(mobileCell.id == DIV_CELL_ID_NAME ) {
         let cooridnate = this.getBoundingClientRect();
-        // console.log(event.touches[0].clientX);
-        console.log(document.elementFromPoint(event.touches[0].clientX,event.touches[0].clientY));
-        var mobileCell = document.elementFromPoint(event.touches[0].clientX,event.touches[0].clientY);
+     console.log(event.touches);
+        // console.log(document.elementFromPoint(event.touches[0].clientX,event.touches[0].clientY));
+    let mobileCell = document.elementFromPoint(event.touches[0].clientX,event.touches[0].clientY);
         if (currentlyActive) {
             switch (color) {
            
@@ -191,7 +193,7 @@ function getCellCoordinates(event){
     
     
                     console.log(rgbValue);
-                    mobileCell.style.backgroundColor = RgbSelector.value;
+                    document.elementFromPoint(event.touches[0].clientX,event.touches[0].clientY).style.backgroundColor = RgbSelector.value;
                     checker = this.style.backgroundColor.slice(-4, -1)
                     break;
     
@@ -229,6 +231,7 @@ function getCellCoordinates(event){
     
                 default:
                     mobileCell.style.backgroundColor = "#000000";
+                    console.log("Default");
                     break;
     
             }
@@ -255,7 +258,7 @@ function onLoad() {
 
     let cellActivator = document.querySelectorAll("#" + DIV_CELL_ID_NAME);
     gridPixel.forEach((gridPixel) => gridPixel.addEventListener("mousedown", function () { toggleClicker(true) }));
-    gridPixel.forEach((gridPixel) => gridPixel.addEventListener("mouseup", function () { toggleClicker(true) }));
+    gridPixel.forEach((gridPixel) => gridPixel.addEventListener("mouseup", function () { toggleClicker(false) }));
 
     // gridPixel.forEach((gridPixel) => gridPixel.addEventListener("touchmove", function () { toggleClicker(true) }));
     // gridPixel.forEach((gridPixel) => gridPixel.addEventListener("touchend", function () { toggleClicker(true) }));
@@ -264,10 +267,11 @@ function onLoad() {
     //     e.preventDefault();   
     // changeCellColor(); })
 
-    // gridPixel.forEach((gridPixel) => gridPixel.addEventListener("mouseenter", changeCellColor));
+     gridPixel.forEach((gridPixel) => gridPixel.addEventListener("mouseenter", changeCellColor));
     // gridPixel.forEach((gridPixel) => gridPixel.addEventListener("touchstart", getCellCoordinates));
-    Canvas.addEventListener("touchmove", getCellCoordinates);
-    Canvas.addEventListener("touchstart", getCellCoordinates);
+    gridPixel.forEach((gridPixel) => gridPixel.addEventListener("touchmove", function () { toggleClicker(true) }));
+
+    gridPixel.forEach((gridPixel) => gridPixel.addEventListener("touchmove", getCellCoordinates));
 
 
 
