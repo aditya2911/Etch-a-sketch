@@ -25,7 +25,8 @@ const Slider = document.getElementById("slider");
 const RgbSelector = document.getElementById("colorWheel");
 const ResetButton = document.getElementById("reset"); 
 
-
+let widthOfTheCanvas ;
+let heightOfTheCanvas;
 let randomizedColor;
 let currentlyActive = false;
 let opacityOfCell = 0.0;
@@ -51,10 +52,12 @@ function makeCells(rows, cols) {
     Canvas.style.setProperty(GRID_ROWS, rows);
     Canvas.style.setProperty(GRID_COLS, cols);
 
+     widthOfTheCanvas = window.getComputedStyle(Canvas).getPropertyValue('width');
+     heightOfTheCanvas = window.getComputedStyle(Canvas).getPropertyValue('height');
 
 
-    let widthOftheCell = 35 / rows + "vw";
-    let heightOftheCell = 30 / cols + "vw";
+    let widthOftheCell = widthOfTheCanvas / rows + "px";
+    let heightOftheCell = heightOfTheCanvas / cols + "px";
 
     for (c = 0; c < rows * cols; c++) {
         cell = document.createElement("div");
@@ -173,6 +176,7 @@ function changeCellColor() {
         }
 
     }
+
 }
 
 
@@ -237,6 +241,7 @@ function getCellCoordinates(event){
             }
     
         }
+        event.preventDefault();
     }
 }
 
