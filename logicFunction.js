@@ -24,6 +24,7 @@ const Canvas = document.getElementById("canvas");
 const Slider = document.getElementById("slider");
 const RgbSelector = document.getElementById("colorWheel");
 const ResetButton = document.getElementById("reset"); 
+const cellSizeInNumber = document.getElementById('gridNumber');
 
 let widthOfTheCanvas ;
 let heightOfTheCanvas;
@@ -40,6 +41,8 @@ let color = RGB_MODE;
 
 function sliderValueChange(){
     sliderValue = Slider.value;
+    cellSizeInNumber.textContent = '';
+    cellSizeInNumber.textContent = `${sliderValue} X ${sliderValue}`;
     resetCells();
 }
 
