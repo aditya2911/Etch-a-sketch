@@ -136,7 +136,7 @@ input[type="color"]::-webkit-color-swatch {
     justify-self: center;
 } */
 
-@media screen and (max-width:500px){
+@media screen and (orientation:portrait) {
     #container{
         display:grid;
         grid-template-rows: 10vh 90vh ;
@@ -153,7 +153,10 @@ input[type="color"]::-webkit-color-swatch {
         grid-template-rows: 10fr 1fr;
         grid-template-columns: auto;
     
+
     }
+
+    
     #canvas{
         align-self: center;
         justify-self: center;
@@ -163,27 +166,67 @@ input[type="color"]::-webkit-color-swatch {
     #features{
         grid-row-start: 3;
         display: grid;
-         grid-template-rows: 50% 50%; 
+         grid-template-rows: 30% 40% 30%; 
         grid-template-columns: 33% 33% 33%;
         height:30vw;
         width: 90vw;
+    }
+    .featureButton{
+        margin: 0;
+        align-self: center;
+        justify-self: center;
+        font-size: 1.2vh;
+        padding: 0px;
+        width: 10vh;
+        height: 3vh;
     }
 
     #colorWheel{
         align-self: center;
         justify-self: center;
-    } 
-
-    #shading{
-        align-self: center;
-        justify-self: center;
+        margin: 0;
+        grid-row-start: 2;
+        grid-column-start: 2;
+        font-size: 1.2vh;
+        padding: 0px;
+        width: 8vh;
+        height: 8vh;
     } 
 
     #rainbowButton{
-        display: flex;
+        
         grid-row: 1;
         grid-column-end: 2;
-        justify-self: center;
-        align-self: center;
+        margin-top: 2vh;
+       
     }
+
+    #shading{
+      
+        grid-row-start: 3;
+        grid-column-start: 1;
+        margin-bottom: 2vh;
+    } 
+
+    #eraser{
+            grid-row-start: 3;
+            grid-column-start: 3;
+            margin-bottom: 2vh;
+            }
+
+    #reset{
+            grid-row-start: 1;
+            grid-column-start: 3;
+            margin-top: 2vh;
+    }
+
+    #slider{
+        display: none;
+    }
+
+    #gridNumber{
+display: none;
+    }
+
+    
 }
