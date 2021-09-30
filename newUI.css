@@ -57,7 +57,7 @@ input[type="color"]::-webkit-color-swatch {
     flex-direction: column;
     align-items: center;
     justify-items: flex-start;
-    border: 1px solid black;
+    box-shadow:  0px 0px 13px 2px #ddd;
     height: 85vh;
     justify-self: stretch;
     width: 15vw;
@@ -92,13 +92,25 @@ input[type="color"]::-webkit-color-swatch {
     margin-top: 2vh;
 }
 
+#canvasContainer{
+    justify-self: center;
+    align-self: center;
+    display: grid;
+    width: 38vw;
+    height: 75vh;
+    /* border: 1px solid  black; */
+    border-radius: 0.8rem;
+    box-shadow:  0px 0px 13px 4px #ddd;
+    background-color: ;
+
+}
 #canvas{
     display: grid;
     justify-self: center;
     align-self: center;
-    height: 30vw;
+    height: 68vh;
     width:35vw;
-    border: 1px solid black;
+    border: 1px solid #ddd;
    
     
     
@@ -156,12 +168,24 @@ input[type="color"]::-webkit-color-swatch {
 
     }
 
+
+#canvasContainer{
+    justify-self: center;
+    align-self: center;
+    display: grid;
+    width: 50vh;
+    height: 50vh;
+    /* border: 1px solid  black; */
+    border-radius: 0.8rem;
+    box-shadow:  0px 0px 13px 2px #ddd;
+
+}
     
     #canvas{
         align-self: center;
         justify-self: center;
-        width: 50vh;
-        height: 50vh;
+        width: 47vh;
+        height: 47vh;
     }
     #features{
         grid-row-start: 3;
@@ -170,15 +194,17 @@ input[type="color"]::-webkit-color-swatch {
         grid-template-columns: 33% 33% 33%;
         height:30vw;
         width: 90vw;
-    }
+        align-self: center;
+        justify-self: center;
+        margin:0px 0px 1rem 0px    }
     .featureButton{
         margin: 0;
         align-self: center;
         justify-self: center;
-        font-size: 1.2vh;
+        font-size: 1.7vh;
         padding: 0px;
-        width: 10vh;
-        height: 3vh;
+        width: 13vh;
+        height: 5vh;
     }
 
     #colorWheel{
@@ -189,8 +215,8 @@ input[type="color"]::-webkit-color-swatch {
         grid-column-start: 2;
         font-size: 1.2vh;
         padding: 0px;
-        width: 8vh;
-        height: 8vh;
+        width: 10vh;
+        height: 10vh;
     } 
 
     #rainbowButton{

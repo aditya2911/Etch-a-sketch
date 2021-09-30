@@ -59,8 +59,8 @@ function makeCells(rows, cols) {
      heightOfTheCanvas = window.getComputedStyle(Canvas).getPropertyValue('height');
 
 
-    let widthOftheCell = widthOfTheCanvas / rows + "px";
-    let heightOftheCell = heightOfTheCanvas / cols + "px";
+    let widthOftheCell = widthOfTheCanvas / rows + "vw";
+    let heightOftheCell = heightOfTheCanvas / cols + "vh";
 
     for (c = 0; c < rows * cols; c++) {
         cell = document.createElement("div");
