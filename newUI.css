@@ -117,6 +117,11 @@ input[type="color"]::-webkit-color-swatch {
     grid-template-rows: repeat(var(--grid-rows),1fr);
     grid-template-columns: repeat(var(--grid-cols),1fr);
     }
+
+    #sliderMobile{
+      display: none;
+    }
+
 /* #titleContainer1{
     display: grid;
     font-size: 3rem;
@@ -147,6 +152,67 @@ input[type="color"]::-webkit-color-swatch {
     align-self: center;
     justify-self: center;
 } */
+
+@media screen and (max-width: 1700px) {
+    #canvasContainer{
+    width: 38vw;
+    height: 70vh;
+    }
+
+    #canvas{
+    height: 65vh;
+    width: 35vw;
+    }
+}
+
+@media screen and (max-width: 1580px) {
+    #canvasContainer{
+        width: 38vw;
+        height: 66vh;
+    }
+
+    #canvas{
+        height: 60vh;
+        width: 35vw;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    #canvasContainer{
+        width: 38vw;
+        height: 55vh;
+    }
+
+    #canvas{
+        height: 50vh;
+        width: 35vw;
+    }
+}
+
+@media screen and (max-width: 1191px) {
+    #canvasContainer{
+        width: 38vw;
+        height: 49vh;
+    }
+
+    #canvas{
+        height: 45vh;
+        width: 35vw;
+    }
+}
+
+
+@media screen and (max-width: 964px) {
+    #canvasContainer{
+        width: 38vw;
+        height: 45vh;
+    }
+
+    #canvas{
+        height: 40vh;
+        width: 35vw;
+    }
+}
 
 @media screen and (orientation:portrait) {
     #container{
@@ -244,6 +310,13 @@ input[type="color"]::-webkit-color-swatch {
             grid-row-start: 1;
             grid-column-start: 3;
             margin-top: 2vh;
+    }
+
+    #sliderMobile{
+        display: flex;
+        align-self: center;
+        justify-self: center;
+        grid-row-start: 2;
     }
 
     #slider{

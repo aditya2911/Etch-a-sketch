@@ -25,6 +25,7 @@ const Slider = document.getElementById("slider");
 const RgbSelector = document.getElementById("colorWheel");
 const ResetButton = document.getElementById("reset"); 
 const cellSizeInNumber = document.getElementById('gridNumber');
+const sliderMobile = document.getElementById("sliderMobile");
 
 let widthOfTheCanvas ;
 let heightOfTheCanvas;
@@ -41,8 +42,16 @@ let color = RGB_MODE;
 
 function sliderValueChange(){
     sliderValue = Slider.value;
+    sliderMobile.value = sliderValue;
     cellSizeInNumber.textContent = '';
     cellSizeInNumber.textContent = `${sliderValue} X ${sliderValue}`;
+    resetCells();
+}
+function sliderMobileValueChange(){
+    sliderValue = sliderMobile.value;
+    cellSizeInNumber.textContent = '';
+    cellSizeInNumber.textContent = `${sliderValue} X ${sliderValue}`;
+    Slider.value = sliderValue;
     resetCells();
 }
 
@@ -253,6 +262,7 @@ function getCellCoordinates(event){
 Canvas.onmousedown = () => {return false};
 ResetButton.addEventListener("click",resetCells);
 Slider.addEventListener("change",sliderValueChange);
+sliderMobile.addEventListener("change",sliderMobileValueChange);
 
 
 featureButton.forEach((featureButton) => featureButton.addEventListener("mousedown", colorMode));
