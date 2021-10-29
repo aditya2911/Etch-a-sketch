@@ -87,6 +87,10 @@ input[type="color"]::-webkit-color-swatch {
     padding: 0px;
 }
 
+#reset{
+    background-color:#3b5998;
+    color: white;
+}
 .gridSize{
     font-size: 3vh;
     margin-top: 2vh;
@@ -226,9 +230,10 @@ input[type="color"]::-webkit-color-swatch {
     line-height: 2.5;
     }
 
+   
     #featureContainer1{
         display: grid;
-        grid-template-rows: 10fr 1fr;
+        grid-template-rows: 10fr 1fr 1fr 2fr;
         grid-template-columns: auto;
     
 
@@ -254,7 +259,7 @@ input[type="color"]::-webkit-color-swatch {
         height: 47vh;
     }
     #features{
-        grid-row-start: 3;
+        grid-row-start: 4;
         display: grid;
          grid-template-rows: 30% 40% 30%; 
         grid-template-columns: 33% 33% 33%;
@@ -311,12 +316,19 @@ input[type="color"]::-webkit-color-swatch {
             grid-column-start: 3;
             margin-top: 2vh;
     }
+    
+    #sliderValueIndicator{
+        grid-row-start: 2;
+        justify-self: center;
+        align-self: center;
+        display: block;
+    }
 
     #sliderMobile{
         display: flex;
         align-self: center;
         justify-self: center;
-        grid-row-start: 2;
+        grid-row-start: 3;
     }
 
     #slider{

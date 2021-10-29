@@ -26,6 +26,13 @@ const RgbSelector = document.getElementById("colorWheel");
 const ResetButton = document.getElementById("reset"); 
 const cellSizeInNumber = document.getElementById('gridNumber');
 const sliderMobile = document.getElementById("sliderMobile");
+const rainbowButton = document.getElementById("rainbowButton");
+const shadingButton = document.getElementById("shading");
+const eraserButton  = document.getElementById("eraser");
+const sliderValueChangedM = document.getElementById("sliderValueIndicator");
+sliderValueChangedM.style.display = "none";
+
+
 
 let widthOfTheCanvas ;
 let heightOfTheCanvas;
@@ -39,6 +46,41 @@ RgbSelector.value = "#000000";
 rgbValue = RgbSelector;
 let color = RGB_MODE;
 
+function backgroundColorChangerForOption(event){
+ 
+    switch(event.target.dataset.color){
+       
+        case HTML_COLOR_MODE_ERASER:
+         
+            eraserButton.style.background = 'black'
+            eraserButton.style.color = "white";
+            shadingButton.style.background = "white";
+            shadingButton.style.color = "black";
+            rainbowButton.style.background = "white";
+            rainbowButton.style.color = "black";
+            break;
+        case HTML_COLOR_MODE_RAINBOW:
+            rainbowButton.style.background = "#000000";
+            rainbowButton.style.color = "white";
+            shadingButton.style.background= "#ffffff";
+            shadingButton.style.color = "black";
+            eraserButton.style.background = "#ffffff";
+            eraserButton.style.color = "black";
+
+            break;
+        case HTML_COLOR_MODE_SHADING:
+            shadingButton.style.backgroundColor = "#000000";
+            shadingButton.style.color = "white";
+            eraserButton.style.backgroundColor = "#ffffff";
+            eraserButton.style.color = "black";
+            rainbowButton.style.backgroundColor = "#ffffff";
+            rainbowButton.style.color = "black";
+
+            break;
+    }
+
+}
+
 
 function sliderValueChange(){
     sliderValue = Slider.value;
@@ -51,6 +93,8 @@ function sliderMobileValueChange(){
     sliderValue = sliderMobile.value;
     cellSizeInNumber.textContent = '';
     cellSizeInNumber.textContent = `${sliderValue} X ${sliderValue}`;
+    sliderValueChangedM.textContent = "";
+    sliderValueChangedM.textContent = `${sliderValue} X ${sliderValue}`;
     Slider.value = sliderValue;
     resetCells();
 }
@@ -266,6 +310,8 @@ sliderMobile.addEventListener("change",sliderMobileValueChange);
 
 
 featureButton.forEach((featureButton) => featureButton.addEventListener("mousedown", colorMode));
+featureButton.forEach((featureButton) => featureButton.addEventListener("click", backgroundColorChangerForOption));
+
 makeCells(16,16);
 
 
