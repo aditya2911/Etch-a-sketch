@@ -6,6 +6,50 @@
      background-color: white;
     
 }
+input[type='color'] {
+    -webkit-appearance: none;
+    width: 80px;
+    height: 80px;   
+    border: none;
+    border-radius: 50px;
+    transition: transform 0.3s ease-in-out;
+   
+  }
+  input[type='color']:hover {
+      transform: scale(1.05);
+  }
+  
+  input[type='color']::-webkit-color-swatch-wrapper {
+    padding: 0;
+    border-radius: 50px;
+    color: #ddd;
+    border-color: #ddd;
+    color: #ddd;
+
+   
+  }
+
+
+  
+  input[type='color']::-webkit-color-swatch {
+    border: none;
+    border-radius: 50px;
+    color: #ddd;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  
+  input[type='color']::-moz-color-swatch{
+    border: none;
+    border-radius: 50px;
+    color: #ddd;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+
+input[type="color"]::-moz-color-swatch {
+	border: none;
+    padding: 0;
+}
 
 @font-face {
     font-family: "eina01Bold";
@@ -64,18 +108,18 @@ input[type="color"]::-webkit-color-swatch {
     margin-top: 2vh;
     margin-left: 3vw;
     border-radius: 0.8rem;
+   
+
 }
 
-.btn-light {
-    color: #212529;
-    background-color: white;
-    border-color: #f8f9fa;
-    outline-color: red;
-}
+
 
 #colorWheel{
     margin-top: 10vh;
 }
+
+
+
 
 .featureButton{
     width: 10vw;
@@ -85,6 +129,25 @@ input[type="color"]::-webkit-color-swatch {
     border: 1px solid black;
     font-size: 1.2vw;
     padding: 0px;
+    background: white;
+    border-radius: 3px;
+}
+
+button{
+    transition: trasform 0.8s ease-in-out;
+}
+
+button:focus{
+    background: #333;
+    color: white;
+}
+button:hover {
+    transform: scale(1.05);
+    border-color:  black;
+}
+
+btn btn-light:hover{
+    border-color: black;
 }
 
 #reset{
@@ -105,7 +168,7 @@ input[type="color"]::-webkit-color-swatch {
     /* border: 1px solid  black; */
     border-radius: 0.8rem;
     box-shadow:  0px 0px 13px 4px #ddd;
-    background-color: ;
+ 
 
 }
 #canvas{
@@ -124,6 +187,10 @@ input[type="color"]::-webkit-color-swatch {
 
     #sliderMobile{
       display: none;
+    }
+    #sliderValueIndicator{
+      
+        display: none;
     }
 
 /* #titleContainer1{
@@ -275,6 +342,7 @@ input[type="color"]::-webkit-color-swatch {
         font-size: 1.7vh;
         padding: 0px;
         width: 13vh;
+      
         height: 5vh;
     }
 
@@ -321,7 +389,7 @@ input[type="color"]::-webkit-color-swatch {
         grid-row-start: 2;
         justify-self: center;
         align-self: center;
-        display: block;
+        display: flex;
     }
 
     #sliderMobile{
