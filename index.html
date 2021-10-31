@@ -2,43 +2,46 @@
 <html>
 
 <head>
-    <title>
-        Etch-a-Sketch
-    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Pixpective</title>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js">
+    </script>
+
+    <script type="text/javascript" src="logicFunction.js" defer>
+    </script>
+
     <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="styling.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="newUI.css">
 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"
-        defer></script>
-    <script type="text/javascript" src="logic-script.js" defer></script>
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-    </style>
 </head>
 
 <body>
-        <div id="titleContainer">Etch a Sketch</div>
-        <div id="mainContainer">
+    <div id="container">
+        <div id="titleContainer1">Pixpective</div>
+        <div id="featureContainer1">
+            <div id="features">
+                <input id="colorWheel" type="color" data-color="colorRGB">
+                <button class="featureButton " data-color="rainbow" id="rainbowButton">Rainbow </button>
+                <button class="featureButton " data-color="shading" id="shading">Shading</button>
+                <button id="eraser" class="featureButton " data-color="eraser">Eraser</button>
+                <button class="featureButton " id="reset">Reset</button>
+                
+                <input class="featureButton multi-range" id="slider" type="range" min="1" max="60" value="16">
+                <div class="gridSize" id="gridNumber">16 X 16</div>
 
-        <div id="optionContainer">
-            <button class="featureButton" id="reset">Reset</button>
-            <button class="featureButton" data-color="black">Black</button>
-            <button class="featureButton" data-color="rainbow" id="rainbowButton">Rainbow</button>
-            <button class="featureButton" data-color="shading">Shading</button>
-            <button class="featureButton" data-color="colorRGB" value="red">Color
-                <input id="RGBselector" type="color">
-            </button>
-            <button class="featureButton" data-color="eraser">Eraser</button>
+            </div >
+            <!-- this is used for potrait layout , both sliderValueIndicator and sliderMobile -->
+             <div id = "sliderValueIndicator">16 X 16</div>
+            <input class="multi-range" id="sliderMobile" type="range" min="1" max="60" value="16">
+            <div id="canvasContainer">
+                <div id="canvas"></div>
+            </div>
         </div>
-        <div id="sliderContainer">
-            <input id="slider" type="range" min="1" max="100" value="16">
-        </div>
-        <div id="sketchContainer"></div>
     </div>
-
-
-
 </body>
 
 </html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Etch-a-Sketch
+    </title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styling.css">
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"
+        defer></script>
+    <script type="text/javascript" src="logic-script.js" defer></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    </style>
+</head>
+
+<body>
+        <div id="titleContainer">Etch a Sketch</div>
+        <div id="mainContainer">
+
+        <div id="optionContainer">
+            <button class="featureButton" id="reset">Reset</button>
+            <button class="featureButton" data-color="black">Black</button>
+            <button class="featureButton" data-color="rainbow" id="rainbowButton">Rainbow</button>
+            <button class="featureButton" data-color="shading">Shading</button>
+            <button class="featureButton" data-color="colorRGB" value="red">Color
+                <input id="RGBselector" type="color">
+            </button>
+            <button class="featureButton" data-color="eraser">Eraser</button>
+        </div>
+        <div id="sliderContainer">
+            <input id="slider" type="range" min="1" max="100" value="16">
+        </div>
+        <div id="sketchContainer"></div>
+    </div>
+
+
+
+</body>
+
+</html>
