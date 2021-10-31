@@ -1,4 +1,6 @@
 :root{
+    /* css  variable --grid-cols --grid-rows  for getting the values from javascript and 
+    dynamically adding it to the canvas  */
     --grid-cols:1;
     --grid-rows:1;
     max-width: 100vw;
@@ -6,6 +8,8 @@
      background-color: white;
     
 }
+
+/* used to change the  default appearance of color input */
 input[type='color'] {
     -webkit-appearance: none;
     width: 80px;
@@ -38,6 +42,8 @@ input[type='color'] {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
   
+  /* ::moz-color-swatch is used for mozilla firefox browser , used to change the default appearance of 
+  color input type */
   input[type='color']::-moz-color-swatch{
     border: none;
     border-radius: 50px;
@@ -51,6 +57,8 @@ input[type="color"]::-moz-color-swatch {
     padding: 0;
 }
 
+
+/* custom font for our web app */
 @font-face {
     font-family: "eina01Bold";
     src: url(text-resources/Eina01-Bold.ttf);
@@ -137,18 +145,13 @@ button{
     transition: trasform 0.8s ease-in-out;
 }
 
-button:focus{
-    background: #333;
-    color: white;
-}
+
 button:hover {
     transform: scale(1.05);
     border-color:  black;
 }
 
-btn btn-light:hover{
-    border-color: black;
-}
+
 
 #reset{
     background-color:#3b5998;
@@ -180,11 +183,12 @@ btn btn-light:hover{
     border: 1px solid #ddd;
    
     
-    
+    /* getting the values of grid row and colums and adding it dynammically to our css */
     grid-template-rows: repeat(var(--grid-rows),1fr);
     grid-template-columns: repeat(var(--grid-cols),1fr);
     }
 
+    /* hide the slider mobile on our landscape layout */
     #sliderMobile{
       display: none;
     }
@@ -385,13 +389,16 @@ btn btn-light:hover{
             margin-top: 2vh;
     }
     
+    /* show the slider element in potrait mode */
     #sliderValueIndicator{
         grid-row-start: 2;
         justify-self: center;
         align-self: center;
         display: flex;
+        font-size: 3vh;
     }
 
+    /* show the slider element in potrait mode */
     #sliderMobile{
         display: flex;
         align-self: center;
